@@ -1,0 +1,65 @@
+@import "../../mixins/mixins";
+
+.modalBackground {
+  @include position(relative, 11.5em, 9em, "", "");
+  height: 21em;
+  width: 17em;
+  z-index: 100;
+  font-weight: normal;
+
+  .modalContainer {
+    width: 17em;
+    height: 21em;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+
+    .closeModalX {
+      @include flexBox(space-between, "", "");
+      font-size: 20px;
+    }
+
+    .modalContent {
+      @include flexBox(space-between, "", column);
+      height: 17em;
+
+      .modalList {
+        height: 3em;
+        @include flexBox(space-between, center, row);
+
+        &:hover {
+          background-color: #c6c3c3;
+          border-radius: 10px;
+        }
+
+        .modalPosition {
+          @include flexBox(center, "", "");
+        }
+      }
+    }
+
+    .footer {
+      @include flexBox(center, "", "");
+
+      .cancelButton {
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        border: 2px solid #0080ff;
+        width: 15em;
+        border-radius: 10px;
+        &:hover {
+          background-color: #0080ff;
+          color: white;
+        }
+      }
+    }
+  }
+}

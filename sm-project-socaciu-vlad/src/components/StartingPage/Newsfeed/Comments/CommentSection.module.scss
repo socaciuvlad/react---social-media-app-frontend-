@@ -1,0 +1,28 @@
+@import "../../../mixins/mixins";
+
+.comments {
+  height: 4.375em;
+  border-radius: 10px;
+  &:hover {
+    background-color: #c6c3c3;
+  }
+  .userInfo {
+    @include flexBox(space-between, "", "");
+    .userContainer {
+      @include flexBox("", "", "");
+
+      .profilePic {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+
+      p {
+        @include position(relative, -0.9em, "", "", "");
+      }
+    }
+  }
+  .commentInfo {
+    @include position(relative, "", "", 2.7em, 2.5em);
+  }
+}

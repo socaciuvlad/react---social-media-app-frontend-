@@ -1,0 +1,82 @@
+@import "mixins/mixins";
+
+@mixin flexBox($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin position($position, $top, $right, $bottom, $left) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+.header {
+  width: 100%;
+  height: 3rem;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 0 10%;
+  z-index: 1;
+  @include flexBox(space-between, center, "");
+  @include position(fixed, 0, "", "", "");
+
+  .logo {
+    @include flexBox(center, "", "");
+    @include position(relative, "", "", "", -11em);
+
+    input[type="search"] {
+      border-radius: 5px;
+      margin: 0.5em;
+      height: 2em;
+      background-color: #f3f2f2;
+
+      @media only screen and (max-width: 1390px) {
+        display: none;
+      }
+    }
+  }
+
+  .navIcons {
+    width: 30%;
+    @include flexBox(space-between, "", "");
+    @include position(relative, "", "", "", 5.8em);
+
+    @media only screen and (max-width: 1115px) {
+      display: none;
+    }
+
+    .myCustomButton {
+      &:hover {
+        background-color: lightgray;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .menu {
+    width: 25em;
+    @include flexBox(space-between, "", row);
+    @include position(relative, "", "", "", 11em);
+
+    @media only screen and (max-width: 1115px) {
+      .menuItem {
+        position: relative;
+        right: 20em;
+      }
+    }
+
+    .menuItem {
+      list-style: none;
+
+      Link {
+        color: white;
+      }
+    }
+  }
+}

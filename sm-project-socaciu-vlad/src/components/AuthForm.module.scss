@@ -1,0 +1,151 @@
+@import "authVariables";
+@import "mixins/mixins";
+
+.authComponents {
+  width: 100%;
+  height: 59rem;
+  @include position(relative, "", "", "", "");
+  @include flexBox(center, center, row);
+  background: linear-gradient(
+    135deg,
+    rgba(138, 138, 157, 1) 21%,
+    rgba(250, 250, 126, 1) 67%
+  );
+
+  .auth,
+  .control,
+  .actions {
+    @include flexBox(space-around, center, column);
+  }
+
+  .cardContainer {
+    width: 23%;
+    @include flexBox(space-around, "", "");
+
+    .card {
+      width: 12rem;
+      height: 15rem;
+
+      .picButton {
+        @include position(relative, "", "", 0.5em, 2.2em);
+        font-size: $cardFontSize;
+      }
+
+      .plusButton {
+        @include position(relative, "", "", 0.6em, "");
+        font-size: $cardFontSize;
+      }
+
+      .plusIcon {
+        height: 190px;
+        @include flexBox(center, center, "");
+      }
+    }
+  }
+
+  .auth {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 30px;
+    height: 25em;
+    width: 25em;
+    transition: width 2s, height 2s, background-color 2s, transform 2s,
+      box-shadow 2s;
+    animation: bounce 1s linear;
+    &:hover {
+      background-color: gainsboro;
+      box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px,
+        4px 4px 0px 0px, 5px 5px 0px 0px;
+    }
+
+    .authForm {
+      height: 14em;
+      @include flexBox(space-around, "", column);
+      font-size: $cardFontSize;
+
+      input[type="email"],
+      input[type="password"] {
+        border-radius: 5px;
+        margin: 0.5em;
+        height: 2em;
+
+        &::placeholder {
+          text-align: center;
+        }
+
+        &:hover {
+          background-color: #fffcbf;
+        }
+      }
+
+      .actions {
+        .actionButton,
+        .toggle {
+          margin: 0.5em;
+
+          outline: 0;
+          grid-gap: 8px;
+          justify-content: center;
+          align-items: center;
+          background: 0 0;
+          border: 1px solid #000;
+          border-radius: 4px;
+          cursor: pointer;
+          display: inline-flex;
+          font-size: 16px;
+          gap: 8px;
+          line-height: 1.5;
+          text-decoration: none;
+          transition: all 0.14s ease-out;
+          &:hover {
+            box-shadow: 4px 4px 0 #000;
+            transform: translate(-4px, -4px);
+          }
+          &:focus-visible {
+            outline-offset: 1px;
+          }
+        }
+
+        p {
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  20%,
+  50%,
+  80%,
+  to {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  70% {
+    transform: translateY(-15px);
+  }
+  90% {
+    transform: translateY(-4px);
+  }
+}
+
+@media only screen and (max-width: 1380px) {
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+
+    .card {
+      margin: 1em;
+    }
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .authComponents {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

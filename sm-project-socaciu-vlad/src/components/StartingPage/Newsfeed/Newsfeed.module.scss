@@ -1,0 +1,130 @@
+@import "../../mixins/mixins";
+
+main {
+  @include flexBox(space-between, "", "");
+  // background-color: #dcdcdc;
+
+  .mainContent {
+    width: 37.5em;
+    margin-top: 6.25em;
+    background-color: #dcdcdc;
+
+    .post {
+      box-shadow: 5px 5px 5px 5px #888888;
+      margin: 20px 0;
+      border-radius: 10px;
+      background-color: whitesmoke;
+
+      .postHeader {
+        @include flexBox(space-between, center, "");
+
+        .profileUserInfo {
+          display: flex;
+
+          .profileImage {
+            width: 50px;
+            border-radius: 50%;
+          }
+
+          .profileName {
+            @include flexBox("", "", column);
+
+            .postInfoDate {
+              font-size: 15px;
+            }
+          }
+        }
+
+        .profileOptions {
+          margin-right: 25px;
+          @include flexBox(center, center, "");
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          border-radius: 50%;
+
+          &:hover {
+            background-color: lightgray;
+          }
+        }
+      }
+
+      .content {
+        .imgWrapper {
+          position: relative;
+
+          .imgContent {
+            max-width: 100%;
+          }
+
+          .infoIcon {
+            @include position(absolute, "", 20px, -15px, "");
+            cursor: pointer;
+            background: grey;
+            color: white;
+            font-size: 28px;
+            border-radius: 50px;
+            border: 1px solid black;
+          }
+        }
+
+        .postTitle {
+          margin-top: 5px;
+          padding-left: 15px;
+          display: block;
+        }
+
+        .postDescription {
+          padding: 15px;
+        }
+      }
+
+      .reacts {
+        @include flexBox(space-between, "", "");
+        padding: 15px;
+
+        .reactsCount {
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .actions {
+        @include flexBox(space-around, "", "");
+        margin: 15px 0;
+        padding-left: 0;
+
+        .reaction {
+          cursor: pointer;
+          @include flexBox(center, center, "");
+          padding: 5px 40px;
+          margin-bottom: 15px;
+          &.blue {
+            color: blue;
+          }
+          &:hover {
+            background-color: lightgray;
+            border-radius: 10px;
+          }
+        }
+      }
+
+      .insertCommentField {
+        input[type="text"] {
+          border-radius: 5px;
+          margin: 0.5em;
+          width: 44em;
+          height: 2em;
+          background-color: #f3f2f2;
+
+          &:hover {
+            background-color: lightgray;
+          }
+        }
+      }
+    }
+  }
+}
